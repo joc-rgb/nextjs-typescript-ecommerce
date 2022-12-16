@@ -27,6 +27,9 @@ const cors = Cors({
 const fulfillOrder = async (session: any) => {
   console.log("Fulfilling order", session);
   console.log()
+  const images = JSON.parse(session.metadata.images).map((image:string) =>
+        JSON.stringify(image)
+    ) 
   return app.firestore()
     .collection("customers")
     .doc(session?.metadata?.email || "")
@@ -37,9 +40,7 @@ const fulfillOrder = async (session: any) => {
       amount: (session?.amount_total||0 )/ 100,
       amount_shipping: (session?.total_details?.amount_shipping || 0) / 100,
       timestamp: admin?.firestore.FieldValue.serverTimestamp(),
-      images: JSON.parse(session.metadata.images).map((image:string) =>
-        JSON.stringify(image)
-    ) ||"",
+      images: images,
     })
     .then(() => {
       console.log(
