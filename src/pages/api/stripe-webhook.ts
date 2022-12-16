@@ -54,13 +54,13 @@ export default async (req:NextApiRequest, res:NextApiResponse) => {
     if (req.method === 'POST') {
         const requestBuffer = await buffer(req)
         const payload = requestBuffer.toString()
-        const sign = req.headers["stripe-signature"]!
+        const sign = req.headers["stripe-signature"]
 
         let event;
         
         //Verify event comes from stripe
         try {
-            event = stripe.webhooks.constructEvent(payload, sign, endpointSecret)
+            event = stripe.webhooks.constructEvent(payload, sign||"", endpointSecret)
         
         } catch (err: any) {
             console.log("ERROR: ",err.message)
