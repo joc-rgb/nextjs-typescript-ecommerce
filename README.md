@@ -15,13 +15,12 @@ A plant ecommerce store
 - Logout
 - Add to Cart
 - Stripe Checkout
-- Check Orders
+- Newsletter signup
+- Live Chat
 - Upload images, sell product(seller)
 
 # To do
 
-- NewsLetter signup
-- Live Chat
 - Search Product
 
 # Special Thanks to

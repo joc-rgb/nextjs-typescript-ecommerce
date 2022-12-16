@@ -74,7 +74,7 @@ export default function Header() {
               (<motion.div initial={{ opacity: 0, scale: 0.6, y: 50 }} animate={{ opacity: 1, scale: 1, y:0 }} exit={{ opacity: 0, scale: 0.6, y:0 }} className="absolute w-36 top-11 right-0 bg-white shadow-md text-gray-800 text-xs ">
               <div className="flex flex-col">
                 <p className="p-2">{session ? `Hello, ${session?.user?.name}` : 'Please login to continue'}</p>
-                {session ? <><Link href="/my-orders"><p className='p-2 hover:text-orange-500'>My Orders</p></Link> {session?.user?.email === 'jocxyen@gmail.com' && <Link href="/create"><p className='p-2 hover:text-orange-500'>Add New Product</p></Link>}<p className='p-2 hover:text-orange-500' onClick={(e) => {
+                {session ? <> {session?.user?.email === 'jocxyen@gmail.com' && <Link href="/create"><p className='p-2 hover:text-orange-500'>Add New Product</p></Link>}<p className='p-2 hover:text-orange-500' onClick={(e) => {
                   e.preventDefault()
                   signOut()
                   }}>Sign Out</p>
