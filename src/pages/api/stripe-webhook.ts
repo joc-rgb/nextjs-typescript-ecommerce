@@ -26,10 +26,11 @@ const cors = Cors({
 
 const fulfillOrder = async (session: any) => {
   console.log("Fulfilling order", session);
-  console.log()
-  const images = JSON.parse(session.metadata.images||"").map((image:string) =>
+  
+  const images = JSON.parse(session?.metadata?.images||"").map((image:string) =>
         JSON.stringify(image)
     ) 
+    console.log(images)
   return app.firestore()
     .collection("customers")
     .doc(session?.metadata?.email || "")
