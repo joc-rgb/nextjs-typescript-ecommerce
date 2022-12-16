@@ -5,7 +5,7 @@ import { useSession } from "next-auth/react";
 import { BsArrowLeft } from "react-icons/bs"
 import { GrClearOption } from "react-icons/gr"
 import { useDispatch, useSelector } from "react-redux";
-import { setCartShow } from "redux/cartSlice";
+import { clearCart, setCartShow } from "redux/cartSlice";
 
 import CartItem from "@/components/CartItem";
 
@@ -18,6 +18,8 @@ const CartModal = () => {
   const showCart = () => {
     dispatch(setCartShow(!cartShow));
   };
+
+
   //--Create Stripe Checkout Session--//
   const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUB_KEY||"")
   const createCheckoutSession = async () => {
@@ -50,7 +52,7 @@ const CartModal = () => {
           <BsArrowLeft className="text-textColor text-3xl cursor-pointer" />
         </motion.div>
         <p className="text-lg font-bold text-textColor ">Cart</p>
-        <motion.div whileTap={{ scale: 0.75 }}><GrClearOption className="cursor-pointer p-1 text-3xl bg-slate-200 rounded-full hover:shadow-lg" /></motion.div>
+        <motion.div whileTap={{ scale: 0.75 }} onClick={()=>dispatch(clearCart([]))}><GrClearOption className="cursor-pointer p-1 text-3xl bg-slate-200 rounded-full hover:shadow-lg" /></motion.div>
       </div>
 
       <div className="w-full h-full overflow-y-scroll scrollbar-none justify-between flex items-center flex-col p-2 pb-20 gap-3">
