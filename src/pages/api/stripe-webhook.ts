@@ -15,7 +15,7 @@ const app = !admin.apps.length
   
 const key: string = process.env.STRIPE_SECRET_KEY || ""
 const webhookSecret: string = process.env.STRIPE_WEBHOOK_SECRET || ""
-
+const endpointSecret = process.env.STRIPE_SIGNING_SECRET||"";
 const stripe = new Stripe(key, {
     apiVersion: "2022-11-15",
 })
@@ -60,7 +60,7 @@ export default async (req:NextApiRequest, res:NextApiResponse) => {
         
         //Verify event comes from stripe
         try {
-            event = stripe.webhooks.constructEvent(payload, sign, webhookSecret)
+            event = stripe.webhooks.constructEvent(payload, sign, endpointSecret)
         
         } catch (err: any) {
             console.log("ERROR: ",err.message)
