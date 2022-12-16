@@ -21,6 +21,8 @@ A plant ecommerce store
 
 # To do
 
+- Clean the Mess
+- Implement Reusable Component
 - Search Product
 
 # Special Thanks to
