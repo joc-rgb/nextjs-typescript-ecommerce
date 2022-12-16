@@ -21,6 +21,7 @@
     "@firebase/auth": "^0.21.0",
     "@firebase/firestore": "^3.8.0",
     "@firebase/storage": "^0.10.0",
+    "@mailchimp/mailchimp_marketing": "^3.0.80",
     "@reduxjs/toolkit": "^1.9.1",
     "@splidejs/react-splide": "^0.7.12",
     "@stripe/stripe-js": "^1.46.0",
