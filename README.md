@@ -8,6 +8,8 @@ A plant ecommerce store
 - TailwindCSS
 - Firebase
 - Stripe
+- Redux
+- Next Redux Wrapper
 
 # Functionality
 
