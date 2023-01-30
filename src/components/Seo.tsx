@@ -8,7 +8,7 @@ const defaultMeta = {
   description:
     'An Ecommerce Store built with NextJS Typescript Tailwindcss',
   /** Without additional '/' on the end, e.g. https://theodorusclarence.com */
-  url: 'https://github.com/jocxyen/nextjs-typescript-ecommerce',
+  url: 'https://github.com/jocxy/nextjs-typescript-ecommerce',
   type: 'website',
   robots: 'follow, index',
   /**
